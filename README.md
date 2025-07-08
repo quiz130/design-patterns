@@ -16,7 +16,7 @@ Object patterns deal with relationships, which can be changed at runtime.
 
 ![alt text](images/image-1.png)
 
-j## 🏗 Creational patterns 
+## 🏗 Creational patterns 
 
 1. **Factory Method**
 2. **Abstract Factory**
@@ -63,7 +63,7 @@ Use the Abstract Factory when your code needs to work with various families of r
 
 > 💡 This pattern is particularly useful when an object has many optional or mandatory parameters and different configurations are required during its creation.
 
-![alt text](image.png)
+![alt text](images/image-4.png)
 
 Instead of creating an object directly using its constructor, you use a Builder class. When you’re done configuring the object, you call a  Build() method of the Builder class, which returns the constructed object.
 
@@ -79,8 +79,7 @@ Use cases :
 The Prototype pattern delegates the cloning process to the actual objects that are being cloned. The pattern declares a common interface for all objects that support cloning. This interface lets you clone an object without coupling your code to the class of that object. Usually, such an interface contains just a single `clone` method.
 
 The implementation of the clone method is very similar in all classes. The method creates an object of the current class and carries over all of the field values of the old object into the new one. You can even copy private fields because most programming languages let objects access private fields of other objects that belong to the same class.
-
-![prototype](image-2.png)
+![prototype](images/image-5.png)
 
 > 💡 Use the Prototype pattern when your code shouldn’t depend on the concrete classes of objects that you need to copy. 
 > ⚡ This happens a lot when your code works with objects passed to you from 3rd-party code via some interface. The concrete classes of these objects are unknown, and you couldn’t depend on them even if you wanted to.
