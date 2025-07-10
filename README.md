@@ -152,7 +152,7 @@ Key elements:
 3. **Decorator**: This is an abstract class that also implements the Component interface and has a reference to a Component object. Decorators are responsible for adding new behaviors to the wrapped Component object.
 4. **Concrete Decorator**: These are the concrete classes that extend the Decorator class. They add specific behaviors or responsibilities to the Component. Each Concrete Decorator can add one or more behaviors to the Component.
 
-Related links [](https://daily.dev/blog/decorator-pattern-explained-basics-to-advanced) [](https://www.geeksforgeeks.org/system-design/decorator-pattern/)
+Related links [daily.dev](https://daily.dev/blog/decorator-pattern-explained-basics-to-advanced) [](https://www.geeksforgeeks.org/system-design/decorator-pattern/)
  
 ##  Solid Principles
 
