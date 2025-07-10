@@ -44,7 +44,10 @@ The intent of this design pattern is to create objects, but hiding how this obje
 
 Abstract Factory ensures that products created by a factory are consistent with each other (e.g., ModernChair and ModernTable belong to the same "Modern" family). This is particularly useful when the objects are meant to be used together. It does also promotes loose coupling and encapsulates the creation of objects.
 
-Use the Abstract Factory when your code needs to work with various families of related products, but you don’t want it to depend on the concrete classes of those products—they might be unknown beforehand or you simply want to allow for future extensibility.
+Applicability :
+- a system should be independent of how its products are created, composed, and represented.
+- a system should be configured with one of multiple families of products.
+- a family of related product objects is designed to be used together, and you need to enforce this constraint.
 
 ### 🔶 Singleton 
 
@@ -86,6 +89,71 @@ The implementation of the clone method is very similar in all classes. The metho
 > 🔸 The Prototype pattern provides the client code with a general interface for working with all objects that support cloning. This interface makes the client code independent from the concrete classes of objects that it clones.
 ---
 
+## Structural Design Patterns
+
+### 🔌 Adapter
+
+**Adapter** is a structural design pattern that allows objects with incompatible interfaces to work together.
+
+**This is a special object that converts the interface of one object so that another object can understand it.**
+
+![adapter](images/image-6.png)
+![implementation-adapter](images/image-7.png)
+
+Participants :
+1. **Target**: The domain specific that the client use
+2. **Adapter**: A class that implements the `Target` interface and and adaptss `Adaptee` to it.
+3. **Adaptee**: An existing class with an incompatible interface that needs adapting.
+4. **Client**: The class that interacts with the `Target` interface.
+
+> 💡 Use the Adapter class when you want to use some existing class, but its interface isn’t compatible with the rest of your code. The Adapter pattern lets you create a middle-layer class that serves as a translator between your code and a legacy class, a 3rd-party class or any other class with a weird interface.
+
+### 〰 Bridge
+
+**Bridge** is a structural design pattern that lets you split a large class or a set of closely related classes into two separate hierarchies—abstraction and implementation—which can be developed independently of each other.
+
+_Abstraction_ (also called _interface_) is a high-level control layer for some entity. This layer isn’t supposed to do any real work on its own. It should delegate the work to the implementation layer. This is not referring to the interfaces and abstract class in programming.
+
+![bridge](images/image-8.png)
+
+Bridge is useful for solving the problem of the cartesian product.
+
+### 🧰 Composite
+
+**Composite** is a structural design pattern that lets you compose objects into tree structures and then work with these structures as if they were individual objects.
+
+Key elements :
+1. **Component**: An abstract class or interface that defines common methods for both leaf and composite objects.
+2. **Leaf**: A class representing individual objects in the hierarchy that do not have any children.
+3. **CompositeO**: A class that contains child components (either leaf or composite objects) and implements methods to add, remove, and access its children.    
+
+![composite](images/image-9.png)
+
+> 💡  Use the Composite pattern when you have to implement a tree-like object structure. Use the pattern when you want the client code to treat both simple and complex elements uniformly.
+
+### 🔶 Decorator
+
+**Decorator** is a structural design pattern which allows behavior to be added to individual objects, dynamically, without affecting the behavior of other objects from the same class. This pattern is useful when you need to add functionality to objects in a flexible and reusable way.
+
+> [!NOTE]
+> The Decorator Pattern is commonly used in scenarios where a variety of optional features or behaviors need to be added to objects in a flexible and reusable manner. It follows the open/closed principle, because new decorators are added without changing the code.
+
+![decorator](images/decorator.png)
+
+Use the Decorator pattern when: 
+- **Extending Functionality**: When you have a base component with basic functionality, but you need to add additional features or behaviors to it dynamically without altering its structure. Decorators allow you to add new responsibilities to objects at runtime.
+- **Multiple Combinations of Features**: When you want to provide multiple combinations of features or options to an object. Decorators can be stacked and combined in different ways to create customized variations of objects, providing flexibility to users.
+- **Legacy Code Integration**: When working with legacy code or third-party libraries where modifying the existing codebase is not feasible or desirable, decorators can be used to extend the functionality of existing objects without altering their implementation.
+- **Input/Output Streams**: Decorators are commonly used in input/output stream classes. They allow you to wrap streams with additional functionality such as buffering, compression, encryption, or logging without modifying the original stream classes.
+
+Key elements: 
+1. **Component Interface**: This is an abstract class or interface that defines the common interface for both the concrete components and decorators. It specifies the operations that can be performed on the objects.
+2. **Concrete Component**: These are the basic objects or classes that implement the Component interface. They are the objects to which we want to add new behavior or responsibilities.
+3. **Decorator**: This is an abstract class that also implements the Component interface and has a reference to a Component object. Decorators are responsible for adding new behaviors to the wrapped Component object.
+4. **Concrete Decorator**: These are the concrete classes that extend the Decorator class. They add specific behaviors or responsibilities to the Component. Each Concrete Decorator can add one or more behaviors to the Component.
+
+Related links [](https://daily.dev/blog/decorator-pattern-explained-basics-to-advanced) [](https://www.geeksforgeeks.org/system-design/decorator-pattern/)
+ 
 ##  Solid Principles
 
 **_SOLID_** is a mnemonic for five design principles intended to make software designs more **understandable**, **flexible** and **maintainable**.
