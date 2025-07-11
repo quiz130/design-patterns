@@ -131,7 +131,7 @@ Key elements :
 
 > 💡  Use the Composite pattern when you have to implement a tree-like object structure. Use the pattern when you want the client code to treat both simple and complex elements uniformly.
 
-### 🔶 Decorator
+### ⛓ Decorator
 
 **Decorator** is a structural design pattern which allows behavior to be added to individual objects, dynamically, without affecting the behavior of other objects from the same class. This pattern is useful when you need to add functionality to objects in a flexible and reusable way.
 
@@ -181,7 +181,7 @@ Key elements :
 
 Relevant links: [Medium ↗](https://medium.com/@andreaspoyias/design-patterns-a-quick-guide-to-facade-pattern-16e3d2f1bfb6)
 
-### Flyweight
+### 🔷 Flyweight
 
 **Flyweight** is a structural pattern that optimizes memory usage by sharing a common state among multiple objects. It aims to reduce the number of objects created and to decrease memory footprint, which is particularly useful when dealing with a large number of similar objects.
 
@@ -190,7 +190,7 @@ Instead of creating a new object for each instance, the Flyweight pattern reuses
 > [!Important]
 > **Shared vs. Unique Data**: Objects are split into shared (intrinsic) data and unique (extrinsic) data. The shared data is stored in a central place and reused, while the unique data is kept separately.
 
-![flyweight](image.png)
+![flyweight](images/flyweight.png)
 
 How to implement it: 
 1. Divide fields of a class that will become a flyweight into two parts:
@@ -206,6 +206,24 @@ When to use flyweight design pattern:
 1. Many similar objects are used and the storage cost is high.
 2. The majority of each object’s state data can be made extrinsic.
 3. A few shared objects would easily replace many unshared objects.
+
+### 🟫 Proxy
+
+**Proxy** is a structural design pattern that lets you provide a substitute or placeholder for another object. A proxy controls access to the original object, allowing you to perform something either before or after the request gets through to the original object.
+
+> [!Note]
+> The Proxy pattern suggests that you create a new proxy class with the same interface as an original service object. Then you update your app so that it passes the proxy object to all of the original object’s clients. Upon receiving a request from a client, the proxy creates a real service object and delegates all the work to it.
+
+![proxy](images/proxy.png)
+
+Most popular use cases :
+
+> 1. **Lazy initialization (virtual proxy)**: Instead of creating the object when the app launches, you can delay the object’s initialization >to a time when it’s really needed.
+> 2. **Access control (protection proxy)**: The proxy can pass the request to the service object only if the client’s credentials match some criteria.
+> 3. **Local execution of a remote service (remote proxy)**: This is when the service object is located on a remote server. In this case, the proxy passes the client request over the network, handling all of the nasty details of working with the network.
+> 4. **Logging requests (logging proxy)**: The proxy can log each request before passing it to the service.
+> 5. **Caching request results (caching proxy)**: The proxy can implement caching for recurring requests that always yield the same results.
+
 
 ##  Solid Principles
 
