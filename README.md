@@ -189,7 +189,24 @@ Instead of creating a new object for each instance, the Flyweight pattern reuses
 
 > [!Important]
 > **Shared vs. Unique Data**: Objects are split into shared (intrinsic) data and unique (extrinsic) data. The shared data is stored in a central place and reused, while the unique data is kept separately.
- 
+
+![flyweight](image.png)
+
+How to implement it: 
+1. Divide fields of a class that will become a flyweight into two parts:
+    - the intrinsic state: the fields that contain unchanging data duplicated across many objects
+    - the extrinsic state: the fields that contain contextual data unique to each object
+2. Leave the fields that represent the intrinsic state in the > class, but make sure they’re immutable. They should take their initial values only inside the constructor.
+3. Go over methods that use fields of the extrinsic state. For each field used in the method, introduce a new parameter and use it instead of the field.
+4. Optionally, create a factory class to manage the pool of flyweights. It should check for an existing flyweight before creating a new one. Once the factory is in place, clients must only request flyweights through it. They should describe the desired flyweight by passing its intrinsic state to the factory.
+5. The client must store or calculate values of the extrinsic state (context) to be able to call methods of flyweight objects. 
+
+When to use flyweight design pattern:
+
+1. Many similar objects are used and the storage cost is high.
+2. The majority of each object’s state data can be made extrinsic.
+3. A few shared objects would easily replace many unshared objects.
+
 ##  Solid Principles
 
 **_SOLID_** is a mnemonic for five design principles intended to make software designs more **understandable**, **flexible** and **maintainable**.
