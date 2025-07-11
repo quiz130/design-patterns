@@ -155,6 +155,40 @@ Key elements:
 Related links [Daily-Dev ↗](https://daily.dev/blog/decorator-pattern-explained-basics-to-advanced), [Geeksforgeeks ↗](https://www.geeksforgeeks.org/system-design/decorator-pattern/)
 
 ### Decorator vs Composite
+
+1. The **decorator** pattern usually decorates one and only one component, and must have to decorate something, while the **Composite** composite one or many components and has add and remove methods.
+2. The **decorator** has an another additional class, usually an abstract class for the decorator, while the **composite** it doesn't.
+3. The **decorator** is usually used to attach additional behavior to objects, so you have a thing and you wrap it to attach additional behavior, whereas the **composite** we use it if we have something that we want to model as a tree structure.    
+
+### 🏛 Facade 
+
+**Facade** is a structural design pattern that provides a simplified interface to a library, a framework, or any other complex set of classes.
+
+> [!Note]
+> A facade is a class that provides a simple interface to a complex subsystem which contains lots of moving parts. A facade might provide limited functionality in comparison to working with the subsystem directly. However, it includes only those features that clients really care about. Having a facade is handy when you need to integrate your app with a sophisticated library that has dozens of features, but you just need a tiny bit of its functionality.
+
+![facade](images/facade.png)
+
+ - It is used as a camouflage to cover the complexities of a large system and therefore provides a simple interface to the client. In other words, it is a wrapper class used to hide the implementation details.
+
+> [!Important]
+> The goal of facade is to simplify a complicated system. By simplifying the code, we restrict clients from unauthorized access.
+
+Key elements :
+1. **Client**: The one that uses your code.
+2. **Facade**: Its job is to be able to provide to the client more simplified access towards numerous interdependent subsystems that are considered complicated. 
+3. **Subsystems**: The subsystems are hidden from the client
+
+Relevant links: [Medium ↗](https://medium.com/@andreaspoyias/design-patterns-a-quick-guide-to-facade-pattern-16e3d2f1bfb6)
+
+### Flyweight
+
+**Flyweight** is a structural pattern that optimizes memory usage by sharing a common state among multiple objects. It aims to reduce the number of objects created and to decrease memory footprint, which is particularly useful when dealing with a large number of similar objects.
+
+Instead of creating a new object for each instance, the Flyweight pattern reuses existing ones wherever possible, sharing common parts between objects.
+
+> [!Important]
+> **Shared vs. Unique Data**: Objects are split into shared (intrinsic) data and unique (extrinsic) data. The shared data is stored in a central place and reused, while the unique data is kept separately.
  
 ##  Solid Principles
 
