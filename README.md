@@ -1,6 +1,39 @@
+<p align="center">
+  <img src="images/logo.png" height="200">
+</p>
+
+<h1 align="center"><b>🔶Design patterns🔶</b></h1>
+
+# Contents
+
+1. [Creational Design Patterns](#-creational-patterns)
+    - [Factory Method](#-factory-method)
+    - [Abstract Factory](#-abstract-factory)
+    - [Builder](#-builder)
+    - [Singleton](#-singleton)
+    - [Prototype](#-prototype)
+2. [Structural Design Patterns](#-structural-patterns)
+    - [Adapter](#-adapter)
+    - [Bridge](#-bridge)
+    - [Prototype](#-prototype)
+    - [Decorator](#-decorator)
+    - [Facade](#-facade)
+    - [Flyweight](#-flyweight)
+    - [Proxy](#-proxy)
+4. [Solid Principles](#solid-principles)
+    - [Single Reponsibility Principle](#-single-responsibility-principle)
+    - [Open/Closed Principle](#-openclosed-principle)
+    - [Liskov Substitution Principle](#-liskov-substitution-principle)
+    - [Interface Segregation Principle](#-interface-segregation-principle)
+    - [Dependency Inversion Principle](#-dependency-inversion-principle)
+<br>
+---
+
 # 🔶 Design Patterns
 
 **Design patterns** are typical solutions to common problems in software design. Each pattern is like a _blueprint_ that you can customize to solve a particular design problem in your code.
+
+<br>
 
 ## 🔷 Groups of design patterns by purpose
 
@@ -9,12 +42,16 @@
 - **Behavioral patterns** characterize the ways in which classes or objects interact and distribute responsibility.
 
 The second criterion is **scope**, specifies whether the pattern applies primarily to classes or objects. 
-![alt text](images/image.png)
+![design-patterns-categorize](images/design-patterns-categorize.png)
 
 Class patterns deal with relationships between classes and their subclasses, established through inheritance so they are fixed at compile time.
 Object patterns deal with relationships, which can be changed at runtime.
 
-![alt text](images/image-1.png)
+![design-patterns](images/design-patterns.png)
+
+<br>
+
+---
 
 ## 🏗 Creational patterns 
 
@@ -22,17 +59,22 @@ Object patterns deal with relationships, which can be changed at runtime.
 2. **Abstract Factory**
 3. **Builder**
 4. **Prototype** 
-5. **Singleton**
+5. **Singleton** 
+
+<br>
 
 ### 🏭 Factory Method
 
 **Factory method** is a creational design pattern that provides an interface for creating objects in a supperclass, but allows subclasses to alter the type of objects that will be created. The main intent of this pattern is to create objects without exposing the creation logic.
 
+> [!Note]
 > The Factory Method pattern suggests that you replace direct object construction calls (using the `new` operator) with calls to a special factory method. Objects returned by a factory method are often referred to as `products`.
 
 ![alt text](images/image-2.png)
 
 The intent of this design pattern is to create objects, but hiding how this objects are created. It is useful when you have a certain logic that is repeated during the creation of that shared type and when you are duplicating the code for that lets create a method for that. So, the factory method is useful when the class has complex initialisation requirements. 
+
+<br>
 
 ### 🗯 Abstract Factory
 
@@ -49,21 +91,27 @@ Applicability :
 - a system should be configured with one of multiple families of products.
 - a family of related product objects is designed to be used together, and you need to enforce this constraint.
 
+<br>
+
 ### 🔶 Singleton 
 
 **Singleton** is a creational design pattern that lets you ensure that a class has only one instance, while providing a global access point to this instance.
 
 ❓ How to implement it
 
-- Make the default constructor private, to prevent other objects from using the `new` operator with the Singleton class.
-- Create a static creation method that acts as a constructor. Under the hood, this method calls the private constructor to create an object and saves it in a static field. All following calls to this method return the cached object.
+    - Make the default constructor private, to prevent other objects from using the `new` operator with the Singleton class.
+    - Create a static creation method that acts as a constructor. Under the hood, this method calls the private constructor to create an object and saves it in a static field. All following calls to this method return the cached object.
 
+> [!Note]
 > 💡 Use the Singleton pattern when a class in your program should have just a single instance available to all clients.
+
+<br>
 
 ### 🏗 Builder 
 
 **Builder** is a creational design pattern that lets you construct complex objects step by step. The pattern allows you to produce different types and representations of an object using the same construction code.
 
+> [!Note]
 > 💡 This pattern is particularly useful when an object has many optional or mandatory parameters and different configurations are required during its creation.
 
 ![alt text](images/image-4.png)
@@ -71,8 +119,8 @@ Applicability :
 Instead of creating an object directly using its constructor, you use a Builder class. When you’re done configuring the object, you call a  Build() method of the Builder class, which returns the constructed object.
 
 Use cases :
-1. The most common use case for the Builder pattern is when you want to use a mutable object during the initialization phase of an object but want the constructed object to be immutable.
-2. A way to abstract the process of building objects.
+    1. The most common use case for the Builder pattern is when you want to use a mutable object during the initialization phase of an object but want the constructed object to be immutable.
+    2. A way to abstract the process of building objects.
 
 
 ### 🤖 Prototype
@@ -89,7 +137,9 @@ The implementation of the clone method is very similar in all classes. The metho
 > 🔸 The Prototype pattern provides the client code with a general interface for working with all objects that support cloning. This interface makes the client code independent from the concrete classes of objects that it clones.
 ---
 
-## Structural Design Patterns
+## ⛩ Structural Patterns
+
+<br>
 
 ### 🔌 Adapter
 
@@ -106,7 +156,10 @@ Participants :
 3. **Adaptee**: An existing class with an incompatible interface that needs adapting.
 4. **Client**: The class that interacts with the `Target` interface.
 
+> [!Note]
 > 💡 Use the Adapter class when you want to use some existing class, but its interface isn’t compatible with the rest of your code. The Adapter pattern lets you create a middle-layer class that serves as a translator between your code and a legacy class, a 3rd-party class or any other class with a weird interface.
+
+<br>
 
 ### 〰 Bridge
 
@@ -116,7 +169,10 @@ _Abstraction_ (also called _interface_) is a high-level control layer for some e
 
 ![bridge](images/image-8.png)
 
-Bridge is useful for solving the problem of the cartesian product.
+> [!Note]
+> Bridge is useful for solving the problem of the cartesian product.
+
+<br>
 
 ### 🧰 Composite
 
@@ -129,7 +185,10 @@ Key elements :
 
 ![composite](images/image-9.png)
 
+> [!Note]
 > 💡  Use the Composite pattern when you have to implement a tree-like object structure. Use the pattern when you want the client code to treat both simple and complex elements uniformly.
+
+<br>
 
 ### ⛓ Decorator
 
@@ -154,11 +213,15 @@ Key elements:
 
 Related links [Daily-Dev ↗](https://daily.dev/blog/decorator-pattern-explained-basics-to-advanced), [Geeksforgeeks ↗](https://www.geeksforgeeks.org/system-design/decorator-pattern/)
 
+<br>
+
 ### Decorator vs Composite
 
 1. The **decorator** pattern usually decorates one and only one component, and must have to decorate something, while the **Composite** composite one or many components and has add and remove methods.
 2. The **decorator** has an another additional class, usually an abstract class for the decorator, while the **composite** it doesn't.
 3. The **decorator** is usually used to attach additional behavior to objects, so you have a thing and you wrap it to attach additional behavior, whereas the **composite** we use it if we have something that we want to model as a tree structure.    
+
+<br>
 
 ### 🏛 Facade 
 
@@ -180,6 +243,8 @@ Key elements :
 3. **Subsystems**: The subsystems are hidden from the client
 
 Relevant links: [Medium ↗](https://medium.com/@andreaspoyias/design-patterns-a-quick-guide-to-facade-pattern-16e3d2f1bfb6)
+
+<br>
 
 ### 🔷 Flyweight
 
@@ -206,6 +271,8 @@ When to use flyweight design pattern:
 1. Many similar objects are used and the storage cost is high.
 2. The majority of each object’s state data can be made extrinsic.
 3. A few shared objects would easily replace many unshared objects.
+
+<br>
 
 ### 🟫 Proxy
 
