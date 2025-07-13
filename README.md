@@ -291,6 +291,38 @@ Most popular use cases :
 > 4. **Logging requests (logging proxy)**: The proxy can log each request before passing it to the service.
 > 5. **Caching request results (caching proxy)**: The proxy can implement caching for recurring requests that always yield the same results.
 
+<br>
+
+---
+## Behavioral Patterns
+
+<br>
+
+### Chain of Responsibility 
+
+**Chain of Responsibility** is a behavioral design pattern that lets you pass requests along a chain of handlers. Upon receiving a request, each handler decides either to process the request or to pass it to the next handler in the chain.
+
+> [!Note]
+> The Chain of Responsibility relies on transforming particular behaviors into stand-alone objects called handlers. The pattern suggests that you link these handlers into a chain. Each linked handler has a field for storing a reference to the next handler in the chain. In addition to processing a request, handlers pass the request further along the chain. The request travels along the chain until all handlers have had a chance to process it, but a handler can decide to not pass the request further down.
+
+![chain of responsibility](images/chain-of-responsibility.png)
+
+Pros : loose coupling, dynamic chain, srp, sequential order
+
+Relevant links : [Geeksforgeeks ↗](https://www.geeksforgeeks.org/system-design/chain-responsibility-design-pattern/), [Medium ↗](https://medium.com/multinetinventiv/the-chain-of-responsibility-pattern-how-to-use-the-pros-and-cons-a799fb97173c)  
+
+<br>
+
+### 🎮 Command 
+
+Command is a behavioral design pattern that turns a request into a stand-alone object that contains all information about the request. This transformation lets you pass requests as a method arguments, delay or queue a request’s execution, and support undoable operations.
+
+![command](images/command.png)
+
+> [!Note]
+> - Use the Command pattern when you want to implement reversible operations.
+> - Use the Command pattern when you want to parametrize objects with operations.
+> - Use the Command pattern when you want to queue operations, schedule their execution, or execute them remotely.
 
 ##  Solid Principles
 
