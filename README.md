@@ -1,5 +1,5 @@
 <p align="center">
-  <img src="images/logo.png" height="200">
+  <img src="images/logo.png" height="500">
 </p>
 
 <h1 align="center"><b>🔶Design patterns🔶</b></h1>
@@ -27,6 +27,7 @@
     - [Interface Segregation Principle](#-interface-segregation-principle)
     - [Dependency Inversion Principle](#-dependency-inversion-principle)
 <br>
+
 ---
 
 # 🔶 Design Patterns
