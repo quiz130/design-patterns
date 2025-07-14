@@ -336,6 +336,23 @@ Command is a behavioral design pattern that turns a request into a stand-alone o
 > Use the pattern to reduce duplication of the traversal code across your app.
 > Use the Iterator when you want your code to be able to traverse different data structures or when types of these structures are unknown beforehand.
 
+<br>
+
+### 🎡 Mediator
+
+**Mediator** is a behavioral design pattern that lets you reduce chaotic dependencies between objects. The pattern restricts direct communications between the objects and forces them to collaborate only via a mediator object.
+
+> [!Note]
+> The Mediator pattern suggests that you should cease all direct communication between the components which you want to make independent of each other. Instead, these components must collaborate indirectly, by calling a special mediator object that redirects the calls to appropriate components. As a result, the components depend only on a single mediator class instead of being coupled to dozens of their colleagues.
+
+![mediator](images/mediator.png)
+
+> - Use the Mediator pattern when it’s hard to change some of the classes because they are tightly coupled to a bunch of other classes.
+> - Use the pattern when you can’t reuse a component in a different program because it’s too dependent on other components.
+> -  Use the Mediator when you find yourself creating tons of component subclasses just to reuse some basic behavior in various contexts.
+
+Related links : [daily.dev ↗](https://daily.dev/blog/mediator-design-pattern-explained)
+
 ##  Solid Principles
 
 **_SOLID_** is a mnemonic for five design principles intended to make software designs more **understandable**, **flexible** and **maintainable**.
