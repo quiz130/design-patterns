@@ -353,9 +353,68 @@ Command is a behavioral design pattern that turns a request into a stand-alone o
 
 Related links : [daily.dev ↗](https://daily.dev/blog/mediator-design-pattern-explained)
 
+### 🔵 Memento
+
+**Memento** is a behavioral design pattern that lets you save and restore the previous state of an object without revealing the details of its implementation.
+
+> [!Note]
+> Key Concepts:
+> - **Originator**: The object whose state needs to be saved and restored.
+> - **Memento**: The object that stores the state of the Originator.
+> - **Caretaker**: The object that requests and manages the saving and restoring of the Originator’s state.
+
+![memento](images/memento.png)
+
+> Use Memento when you want undo/redo mechanism.
+> When you want to rollback an object to previous state.
+> When you want to store the history of the object's state.
+
+<br>    
+
+---
+
+## 👁 Observer
+
+Observer is a behavioral design pattern that lets you define a subscription mechanism to notify multiple objects about any events that happen to the object they’re observing.
+
+> [!Note]
+> When one object (the subject) changes state, all its dependents (observers) are notified and updated automatically
+> **Observable** : The object that holds the state and notifies the observers.
+> **ConcreteObservable**: The class that implements the Observable interface.
+> **Observer**: Objects that listen for state changes in the subject.
+> **ConcreteObserver**: The class that implements the Observer interface and responds to changes in the subject.
+
+![observer](images/observer.png)
+
+> When to use Observer design pattern?
+> When you need one object to notify multiple others about changes.
+> When you want observers to automatically respond to changes in the subject’s state.
+> When you want to easily add or remove observers without changing the main subject.
+
+<br>
+
+----
+
+## 🚦 State
+
+**State** is a behavioral design pattern that lets an object alter its behavior when its internal state changes. It appears as if the object changed its class.
+
+> [!Note]
+> The State Pattern allows an object to change its behavior based on its current state. Instead of using large if-else or switch-case blocks to handle different states, the behavior is encapsulated into state classes. The context delegates behavior to the current state object.
+
+> Key Concepts:
+> **State Interface**: Defines the common behavior for all states.
+> **Concrete States**: Implement the behavior for each state.
+> **Context**: Maintains a reference to the current state and delegates requests to the current state object.
+
+![state](images/state.png)
+
 ##  Solid Principles
 
 **_SOLID_** is a mnemonic for five design principles intended to make software designs more **understandable**, **flexible** and **maintainable**.
+
+> Use the State pattern when you have an object that behaves differently depending on its current state, the number of states is enormous, and the state-specific code changes frequently.
+> Use the pattern when you have a class polluted with massive conditionals that alter how the class behaves according to the current values of the class’s fields.
 
 ### 🔴 Single Responsibility Principle
 
