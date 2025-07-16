@@ -440,6 +440,23 @@ Observer is a behavioral design pattern that lets you define a subscription mech
 > Use the Template Method pattern when you want to let clients extend only particular steps of an algorithm, but not the whole algorithm or its structure.
 >  Use the pattern when you have several classes that contain almost identical algorithms with some minor differences. As a result, you might need to modify all classes when the algorithm changes.
 
+<br>
+
+---
+
+## 🎏 Visitor
+
+**Visitor** is a behavioral design pattern that lets you separate algorithms from the objects on which they operate.
+
+> [!Note]
+> The Visitor pattern suggests that you place the new behavior into a separate class called visitor, instead of trying to integrate it into existing classes. The original object that had to perform the behavior is now passed to one of the visitor’s methods as an argument, providing the method access to all necessary data contained within the object.
+
+![visitor](images/visitor.png)
+
+> Useful when :
+> New operations need to be added frequently
+> The hierarchy of classes is known and not expected to change
+
 ##  Solid Principles
 
 **_SOLID_** is a mnemonic for five design principles intended to make software designs more **understandable**, **flexible** and **maintainable**.
