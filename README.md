@@ -424,6 +424,22 @@ Observer is a behavioral design pattern that lets you define a subscription mech
 > Use the pattern to isolate the business logic of a class from the implementation details of algorithms that may not be as important in the context of that logic.
 > Use the pattern when your class has a massive conditional statement that switches between different variants of the same algorithm.
 
+<br>
+
+---
+
+## 🎨 Template Method
+
+**Template Method** is a behavioral design pattern that defines the skeleton of an algorithm in the superclass but lets subclasses override specific steps of the algorithm without changing its structure.
+
+> [!Note]
+> The Template Method pattern suggests that you break down an algorithm into a series of steps, turn these steps into methods, and put a series of calls to these methods inside a single template method. The steps may either be abstract, or have some default implementation. To use the algorithm, the client is supposed to provide its own subclass, implement all abstract steps, and override some of the optional ones if needed (but not the template method itself).
+
+![template method](images/template-method.png)
+
+> Use the Template Method pattern when you want to let clients extend only particular steps of an algorithm, but not the whole algorithm or its structure.
+>  Use the pattern when you have several classes that contain almost identical algorithms with some minor differences. As a result, you might need to modify all classes when the algorithm changes.
+
 ##  Solid Principles
 
 **_SOLID_** is a mnemonic for five design principles intended to make software designs more **understandable**, **flexible** and **maintainable**.
