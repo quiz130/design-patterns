@@ -21,7 +21,7 @@
     - [Flyweight](#-flyweight)
     - [Proxy](#-proxy)
 3. [Behavorial Design Patterns](#behavioral-patterns)
-    - [Chain of Responsibility](#chain-of-responsibility)
+    - [Chain of Responsibility](#-chain-of-responsibility)
     - [Command](#-command)
     - [Iterator](#-iterator)
     - [Mediator](#-mediator)
@@ -65,7 +65,7 @@ Object patterns deal with relationships, which can be changed at runtime.
 
 ---
 
-## 🏗 Creational patterns 
+# 🏗 Creational patterns 
 
 1. **Factory Method**
 2. **Abstract Factory**
@@ -75,26 +75,27 @@ Object patterns deal with relationships, which can be changed at runtime.
 
 <br>
 
-### 🏭 Factory Method
+## 🏭 Factory Method
 
 **Factory method** is a creational design pattern that provides an interface for creating objects in a supperclass, but allows subclasses to alter the type of objects that will be created. The main intent of this pattern is to create objects without exposing the creation logic.
 
 > [!Note]
 > The Factory Method pattern suggests that you replace direct object construction calls (using the `new` operator) with calls to a special factory method. Objects returned by a factory method are often referred to as `products`.
 
-![alt text](images/image-2.png)
+![factory-method](images/factory-method.png)
 
 The intent of this design pattern is to create objects, but hiding how this objects are created. It is useful when you have a certain logic that is repeated during the creation of that shared type and when you are duplicating the code for that lets create a method for that. So, the factory method is useful when the class has complex initialisation requirements. 
 
 <br>
 
-### 🗯 Abstract Factory
+---
+## 🗯 Abstract Factory
 
 **Abstract Factory** is a creational design pattern that lets you produce families of related objects without specifying their concrete classes.
 
 > The first thing the Abstract Factory pattern suggests is to explicitly declare interfaces for each distinct product of the product family. The next move is to declare the Abstract Factory—an interface with a list of creation methods for all products that are part of the product family.
 
-![abstract-factory](images/image-3.png)
+![abstract-factory](images/abstract-factory.png)
 
 Abstract Factory ensures that products created by a factory are consistent with each other (e.g., ModernChair and ModernTable belong to the same "Modern" family). This is particularly useful when the objects are meant to be used together. It does also promotes loose coupling and encapsulates the creation of objects.
 
@@ -105,7 +106,8 @@ Applicability :
 
 <br>
 
-### 🔶 Singleton 
+---
+## 🔶 Singleton 
 
 **Singleton** is a creational design pattern that lets you ensure that a class has only one instance, while providing a global access point to this instance.
 
@@ -114,19 +116,22 @@ Applicability :
     - Make the default constructor private, to prevent other objects from using the `new` operator with the Singleton class.
     - Create a static creation method that acts as a constructor. Under the hood, this method calls the private constructor to create an object and saves it in a static field. All following calls to this method return the cached object.
 
+![singleton](images/singleton.png)
+
 > [!Note]
 > 💡 Use the Singleton pattern when a class in your program should have just a single instance available to all clients.
 
 <br>
 
-### 🏗 Builder 
+---
+## 🏗 Builder 
 
 **Builder** is a creational design pattern that lets you construct complex objects step by step. The pattern allows you to produce different types and representations of an object using the same construction code.
 
 > [!Note]
 > 💡 This pattern is particularly useful when an object has many optional or mandatory parameters and different configurations are required during its creation.
 
-![alt text](images/image-4.png)
+![builder](images/builder.png)
 
 Instead of creating an object directly using its constructor, you use a Builder class. When you’re done configuring the object, you call a  Build() method of the Builder class, which returns the constructed object.
 
@@ -134,33 +139,35 @@ Use cases :
     1. The most common use case for the Builder pattern is when you want to use a mutable object during the initialization phase of an object but want the constructed object to be immutable.
     2. A way to abstract the process of building objects.
 
+<br>
 
-### 🤖 Prototype
+---
+## 🤖 Prototype
 
 **Prototype** is a creational design pattern that lets you copy existing objects without making your code dependent on their classes.
 
 The Prototype pattern delegates the cloning process to the actual objects that are being cloned. The pattern declares a common interface for all objects that support cloning. This interface lets you clone an object without coupling your code to the class of that object. Usually, such an interface contains just a single `clone` method.
 
 The implementation of the clone method is very similar in all classes. The method creates an object of the current class and carries over all of the field values of the old object into the new one. You can even copy private fields because most programming languages let objects access private fields of other objects that belong to the same class.
-![prototype](images/image-5.png)
+![prototype](images/prototype.png)
 
 > 💡 Use the Prototype pattern when your code shouldn’t depend on the concrete classes of objects that you need to copy. 
 > ⚡ This happens a lot when your code works with objects passed to you from 3rd-party code via some interface. The concrete classes of these objects are unknown, and you couldn’t depend on them even if you wanted to.
 > 🔸 The Prototype pattern provides the client code with a general interface for working with all objects that support cloning. This interface makes the client code independent from the concrete classes of objects that it clones.
----
+<br>
 
-## ⛩ Structural Patterns
+---
+# ⛩ Structural Patterns
 
 <br>
 
-### 🔌 Adapter
+## 🔌 Adapter
 
 **Adapter** is a structural design pattern that allows objects with incompatible interfaces to work together.
 
 **This is a special object that converts the interface of one object so that another object can understand it.**
 
-![adapter](images/image-6.png)
-![implementation-adapter](images/image-7.png)
+![adapter](images/adapter.png)
 
 Participants :
 1. **Target**: The domain specific that the client use
@@ -173,20 +180,22 @@ Participants :
 
 <br>
 
-### 〰 Bridge
+---
+## 〰 Bridge
 
 **Bridge** is a structural design pattern that lets you split a large class or a set of closely related classes into two separate hierarchies—abstraction and implementation—which can be developed independently of each other.
 
 _Abstraction_ (also called _interface_) is a high-level control layer for some entity. This layer isn’t supposed to do any real work on its own. It should delegate the work to the implementation layer. This is not referring to the interfaces and abstract class in programming.
 
-![bridge](images/image-8.png)
+![bridge](images/bridge.png)
 
 > [!Note]
 > Bridge is useful for solving the problem of the cartesian product.
 
 <br>
 
-### 🧰 Composite
+---
+## 🧰 Composite
 
 **Composite** is a structural design pattern that lets you compose objects into tree structures and then work with these structures as if they were individual objects.
 
@@ -195,14 +204,15 @@ Key elements :
 2. **Leaf**: A class representing individual objects in the hierarchy that do not have any children.
 3. **CompositeO**: A class that contains child components (either leaf or composite objects) and implements methods to add, remove, and access its children.    
 
-![composite](images/image-9.png)
+![composite](images/composite.png)
 
 > [!Note]
 > 💡  Use the Composite pattern when you have to implement a tree-like object structure. Use the pattern when you want the client code to treat both simple and complex elements uniformly.
 
 <br>
-
-### ⛓ Decorator
+ 
+---
+## ⛓ Decorator
 
 **Decorator** is a structural design pattern which allows behavior to be added to individual objects, dynamically, without affecting the behavior of other objects from the same class. This pattern is useful when you need to add functionality to objects in a flexible and reusable way.
 
@@ -227,6 +237,7 @@ Related links [Daily-Dev ↗](https://daily.dev/blog/decorator-pattern-explained
 
 <br>
 
+---
 ### Decorator vs Composite
 
 1. The **decorator** pattern usually decorates one and only one component, and must have to decorate something, while the **Composite** composite one or many components and has add and remove methods.
@@ -235,7 +246,8 @@ Related links [Daily-Dev ↗](https://daily.dev/blog/decorator-pattern-explained
 
 <br>
 
-### 🏛 Facade 
+---
+## 🏛 Facade 
 
 **Facade** is a structural design pattern that provides a simplified interface to a library, a framework, or any other complex set of classes.
 
@@ -258,7 +270,8 @@ Relevant links: [Medium ↗](https://medium.com/@andreaspoyias/design-patterns-a
 
 <br>
 
-### 🔷 Flyweight
+---
+## 🔷 Flyweight
 
 **Flyweight** is a structural pattern that optimizes memory usage by sharing a common state among multiple objects. It aims to reduce the number of objects created and to decrease memory footprint, which is particularly useful when dealing with a large number of similar objects.
 
@@ -286,7 +299,8 @@ When to use flyweight design pattern:
 
 <br>
 
-### 🟫 Proxy
+---
+## 🟫 Proxy
 
 **Proxy** is a structural design pattern that lets you provide a substitute or placeholder for another object. A proxy controls access to the original object, allowing you to perform something either before or after the request gets through to the original object.
 
@@ -304,13 +318,15 @@ Most popular use cases :
 > 5. **Caching request results (caching proxy)**: The proxy can implement caching for recurring requests that always yield the same results.
 
 <br>
+<br>
 
 ---
-## Behavioral Patterns
+
+# Behavioral Patterns
 
 <br>
 
-### Chain of Responsibility 
+## ⛓ Chain of Responsibility 
 
 **Chain of Responsibility** is a behavioral design pattern that lets you pass requests along a chain of handlers. Upon receiving a request, each handler decides either to process the request or to pass it to the next handler in the chain.
 
@@ -325,7 +341,8 @@ Relevant links : [Geeksforgeeks ↗](https://www.geeksforgeeks.org/system-design
 
 <br>
 
-### 🎮 Command 
+---
+## 🎮 Command 
 
 Command is a behavioral design pattern that turns a request into a stand-alone object that contains all information about the request. This transformation lets you pass requests as a method arguments, delay or queue a request’s execution, and support undoable operations.
 
@@ -336,7 +353,10 @@ Command is a behavioral design pattern that turns a request into a stand-alone o
 > - Use the Command pattern when you want to parametrize objects with operations.
 > - Use the Command pattern when you want to queue operations, schedule their execution, or execute them remotely.
 
-### 🟩 Iterator 
+<br>
+
+---
+## 🟩 Iterator 
 
 **Iterator** is a behavioral design pattern that lets you traverse elements of a collection without exposing its underlying representation (list, stack, tree, etc.).
 
@@ -349,7 +369,8 @@ Command is a behavioral design pattern that turns a request into a stand-alone o
 
 <br>
 
-### 🎡 Mediator
+---
+## 🎡 Mediator
 
 **Mediator** is a behavioral design pattern that lets you reduce chaotic dependencies between objects. The pattern restricts direct communications between the objects and forces them to collaborate only via a mediator object.
 
@@ -364,7 +385,10 @@ Command is a behavioral design pattern that turns a request into a stand-alone o
 
 Related links : [daily.dev ↗](https://daily.dev/blog/mediator-design-pattern-explained)
 
-### 🔵 Memento
+<br>
+
+---
+## 🔵 Memento
 
 **Memento** is a behavioral design pattern that lets you save and restore the previous state of an object without revealing the details of its implementation.
 
@@ -383,7 +407,6 @@ Related links : [daily.dev ↗](https://daily.dev/blog/mediator-design-pattern-e
 <br>    
 
 ---
-
 ## 👁 Observer
 
 Observer is a behavioral design pattern that lets you define a subscription mechanism to notify multiple objects about any events that happen to the object they’re observing.
@@ -405,7 +428,6 @@ Observer is a behavioral design pattern that lets you define a subscription mech
 <br>
 
 ----
-
 ## 🚦 State
 
 **State** is a behavioral design pattern that lets an object alter its behavior when its internal state changes. It appears as if the object changed its class.
@@ -423,7 +445,6 @@ Observer is a behavioral design pattern that lets you define a subscription mech
 <br>
 
 ---
-
 ## 🎯 Strategy
 
 **Strategy** is a behavioral design pattern that lets you define a family of algorithms, put each of them into a separate class, and make their objects interchangeable.
@@ -438,7 +459,6 @@ Observer is a behavioral design pattern that lets you define a subscription mech
 <br>
 
 ---
-
 ## 🎨 Template Method
 
 **Template Method** is a behavioral design pattern that defines the skeleton of an algorithm in the superclass but lets subclasses override specific steps of the algorithm without changing its structure.
@@ -454,7 +474,6 @@ Observer is a behavioral design pattern that lets you define a subscription mech
 <br>
 
 ---
-
 ## 🎏 Visitor
 
 **Visitor** is a behavioral design pattern that lets you separate algorithms from the objects on which they operate.
@@ -468,20 +487,23 @@ Observer is a behavioral design pattern that lets you define a subscription mech
 > New operations need to be added frequently
 > The hierarchy of classes is known and not expected to change
 
-##  Solid Principles
+# Solid Principles
 
 **_SOLID_** is a mnemonic for five design principles intended to make software designs more **understandable**, **flexible** and **maintainable**.
 
 > Use the State pattern when you have an object that behaves differently depending on its current state, the number of states is enormous, and the state-specific code changes frequently.
 > Use the pattern when you have a class polluted with massive conditionals that alter how the class behaves according to the current values of the class’s fields.
 
-### 🔴 Single Responsibility Principle
+## 🔴 Single Responsibility Principle
 
 **A class should have just one reason to change.**
 
 > Try to make the class responsible for a part of the functionality provided by the software. if a class does too many things, you have to change it every time one of these things changes. While doing that, you’re risking breaking other parts of the class which you didn’t even intend to change. It suggests that you should a separate class foreach functionality.
 
-### 🟠 Open/Closed Principle
+<br>
+
+---
+## 🟠 Open/Closed Principle
 
 **Classes should be open for extensions but closed not for modifications.**
 
@@ -491,19 +513,28 @@ A class is open if you can extend it, produce a subclass. Also a class is closed
 
 > For example, if a class is already developed, tested, reviewed and included in some framework, or used in the app, trying to mess with its code is risky. Instead of changing directly you can create a subclass and override the parts of the base class that you want to behave differently. 
 
-### 🟡 Liskov Substitution Principle
+<br>
+
+---
+## 🟡 Liskov Substitution Principle
 
 **When extending a class, you should be able to pass objects of the subclass in place of objects of the parent class without breaking the client code.**
 
 > The substitution principle is a set of checks that help predict whether a subclass remains compatible with the code that was able to work with objects of the super class. 
 
-### 🟢 Interface Segregation Principle
+<br>
+
+---
+## 🟢 Interface Segregation Principle
 
 **Clients shouldn’t be forced to depend on methods they do not use.**
 
 > You shouldn't create "fat" interfaces, but more specific ones. Clients should implement only those methods that they really need. 
 
-### 🔵 Dependency Inversion Principle
+<br>
+
+---
+## 🔵 Dependency Inversion Principle
 
 **High-level classes shouldn't depend on low-level classes. Both should depend on abstractions. Abstractions should not depend on details. Details should depend on abstractions.**
 
